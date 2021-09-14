@@ -60,7 +60,7 @@ namespace TestWebApp.Controllers
             {
                 IConfidentialClientApplication app;
                 app = ConfidentialClientApplicationBuilder.Create("b64b92c3-1bfc-49d3-b54b-578e066d8b7e")
-                                                          .WithClientSecret("utYQ~qsD5CHyHl2~F-n3s3983.b-t8o92o")
+                                                          .WithClientSecret("--")
                                                           .WithAuthority(new Uri("https://login.microsoftonline.com/e202612e-d871-4516-a5e5-3a79e2a8f1ef"))
                                                           .Build();
                 string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
@@ -93,7 +93,7 @@ namespace TestWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> CosmosDB(CustomerOrder model)
         {
-            string connectionString = "DefaultEndpointsProtocol=https;AccountName=cosmosacc001;AccountKey=srBeufnN19f51WpYopQQ9hNTsVQfKh3vGdAEWM1zZ0jKPFJYNg4CG29TUgWRgreoPZ9iHyZ68cQBisFcAxbEYw==;TableEndpoint=https://cosmosacc001.table.cosmos.azure.com:443/;";
+            string connectionString = "DefaultEndpointsProtocol=https;AccountName=cosmosacc001;AccountKey=;TableEndpoint=https://cosmosacc001.table.cosmos.azure.com:443/;";
             string dbName = "CustomerDB";
             string customerContainerName = "customer";
             string orderContainerName = "order";
