@@ -1,0 +1,11 @@
+﻿@model UploadModel
+
+@using (Html.BeginForm(FormMethod.Post, htmlAttributes: new {enctype= "multipart/form-data" }))
+{
+    var message = Model.ResponseMessage ?? "";
+
+    <label>@message</label><br/>
+    <input type="file" name="uploadFile" />
+
+    <input type="submit" name="submit" value="submit" />
+}

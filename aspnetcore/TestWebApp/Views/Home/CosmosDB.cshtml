@@ -1,0 +1,37 @@
+﻿@model CustomerOrder
+
+@{
+    if (Model.Customer == null)
+    {
+        Model.Customer = new Customer();
+    }
+
+    if (Model.Order == null)
+    {
+        Model.Order = new Order();
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @*<h2>Customer</h2>
+    @Html.LabelFor(q => q.Customer.id);
+    @Html.TextBoxFor(q => q.Customer.id);*@
+    <br />
+    @Html.LabelFor(q => q.Customer.Name);
+    @Html.TextBoxFor(q => q.Customer.Name);
+    <br />
+    @Html.LabelFor(q => q.Customer.City);
+    @Html.TextBoxFor(q => q.Customer.City);
+    <br />
+    <h2>Order</h2>
+    @Html.LabelFor(q => q.Order.Item);
+    @Html.TextBoxFor(q => q.Order.Item);
+    <br />
+    @Html.LabelFor(q => q.Order.Quantity);
+    @Html.TextBoxFor(q => q.Order.Quantity);
+    <br />
+
+    <input type="submit" value="Submit Customer Order" />
+    <label>@Model.ResponseMessage</label>
+}

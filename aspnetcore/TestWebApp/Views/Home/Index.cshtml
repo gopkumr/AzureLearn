@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#btnGetData').click(function () {
+            $.ajax({
+                method:'GET',
+                url: 'http://corslearnapi.azurewebsites.net/weatherforecast',
+                success: function (data) {
+                    $('#divData').html(data);
+                }
+            });
+
+        });
+    });
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @ViewBag.Name</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core - Changed Site</a>.</p>
+    
+    <div class="card">
+        <div class="card-header">Data <button id="btnGetData" class="btn btn-success float-right">Get Data</button></div>
+        <div class="card-body" id="divData"></div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+apiVersion: '2018-10-01'
+location: westus
+name: mycontainernew
+properties:
+  containers:
+  - name: testwebapp
+    properties:
+      image: containerlearn.azurecr.io/testwebapp
+      resources:
+        requests:
+          cpu: 1
+          memoryInGb: 1.5
+      volumeMounts:
+      - mountPath: /mounts/secrets
+        name: volumesecret
+  osType: Linux
+  imageRegistryCredentials:
+    - server: containerlearn.azurecr.io
+      username: containerlearn
+      password: 622nggoVDS+Hv6WygFyjdPr1uByzWIC/
+  volumes:
+  - name: volumesecret
+    secret:
+      connection: RGVmYXVsdEVuZHBvaW50c1Byb3RvY29sPWh0dHBzO0FjY291bnROYW1lPXVwbG9hZGFjY291bnQ7QWNjb3VudEtleT1ub3JaS1NRTE9SM21PWURJYlpVT0pQMCtNTGFJMkZRN01PRmZtdHdTdk5xVURkVnNoWm5tZSt4ak5EMFpnMVBRaDVyeU1pYmNneTlYZVdyRnIrREFpZz09O0VuZHBvaW50U3VmZml4PWNvcmUud2luZG93cy5uZXQ=
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
