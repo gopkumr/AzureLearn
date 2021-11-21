@@ -13,8 +13,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
          from io import StringIO
          csvData = StringIO(req_body)
          df = pd.read_csv(csvData, sep=",")
-         condition=df.valid_start > 1430406000
-         series=df
+         startCondition=df.valid_start > 1430406000
+         instantCondition=df.instantaneous == False
+         condition=startCondition & instantCondition
+         series=df[condition]
     except ValueError:
          pass
     if req_body:
